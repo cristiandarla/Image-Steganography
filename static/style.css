@@ -1,0 +1,42 @@
+*{
+    font-family:'Barlow', sans-serif,'Roboto Mono', monospace; !important
+}
+
+@-webkit-keyframes color_change {
+	from { color:#000000; }
+	to { color: #ff9800; }
+}
+@-moz-keyframes color_change {
+	from { color: #000000; }
+	to { color: #ff9800; }
+}
+@-ms-keyframes color_change {
+	from { color: #000000; }
+	to { color: #ff9800; }
+}
+@-o-keyframes color_change {
+	from { color: #000000; }
+	to { color: #ff9800; }
+}
+@keyframes color_change {
+	from { color: #000000; }
+	to { color: #ff9800; }
+}
+
+.cite {
+    color: #000000;
+}
+
+.cite:hover {
+    color: #ff9800;
+    text-decoration: none;
+    -webkit-animation: color_change 0.5s;
+	-moz-animation: color_change 0.5s;
+	-ms-animation: color_change 0.5s;
+	-o-animation: color_change 0.5s;
+	animation: color_change 0.5s;
+}
+
+.title{
+    text-transform: uppercase;
+}

@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+{%block content%}
+<div class="container-fluid pl-5 pr-3">
+    <section class="mt-4 ml-3 mr-4">
+        <div class="row title">
+            <h2 class="pb-3">Steganography</h2>
+        </div>
+        <div id="definition">
+            <div class="row">
+                <h3 class="pb-3">Definition</h3>
+            </div>
+            <div class="row">
+                <blockquote  >Steganography (/ˌstɛɡəˈnɒɡrəfi/ STEG-ə-NOG-rə-fee)
+                    is the practice of concealing a file, message, image, or video within
+                    another file, message, image, or video. The word steganography comes
+                    from New Latin steganographia, which combines the Greek words steganós
+                    (στεγανός), meaning "covered or concealed", and -graphia (γραφή) meaning "writing".
+                    <footer class="blockquote-footer text-right">Steganography, <cite title="Wikipedia Website"><a class="cite"
+                        href="https://en.wikipedia.org/wiki/Steganography" target="-_blank">Wikipedia</a></cite></footer>
+                </blockquote><br />
+                <blockquote  >The advantage of steganography over cryptography alone
+                    is that the intended secret message does not attract attention to itself
+                    as an object of scrutiny. Plainly visible encrypted messages, no matter
+                    how unbreakable they are, arouse interest and may in themselves be
+                    incriminating in countries in which encryption is illegal.
+                    <footer class="blockquote-footer text-right">Steganography, <cite title="Wikipedia Website"><a class="cite"
+                        href="https://en.wikipedia.org/wiki/Steganography" target="-_blank">Wikipedia</a></cite></footer>
+                </blockquote><br />
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section class="ml-3 mr-4">
+        <div class="row title">
+            <h2>Image Steganography</h2>
+        </div>
+        <div class="row">
+            <h3 class="pb-3">Explanation</h3>
+        </div>
+        <div class="row">
+            <div class="col-6 col-xs-12">
+                <p>As the name suggests, Image Steganography refers to the process of
+                    hiding data within an image file. The image selected for this purpose
+                    is called the cover-image and the image obtained after steganography
+                    is called the stego-image.</p><br />
+                <p>An image is represented as an N*M (in case of greyscale images)
+                    or N*M*3 (in case of colour images) matrix in memory, with each
+                    entry representing the intensity value of a pixel. In image
+                    steganography, a message is embedded into an image by altering
+                    the values of some pixels, which are chosen by an encryption
+                    algorithm. The recipient of the image must be aware of the same
+                    algorithm in order to known which pixels he or she must select
+                    to extract the message.</p><br />
+                    <p>Detection of the message within the cover-image is done by the
+                        process of steganalysis . This can be done through comparison with
+                        the cover image, histogram plotting, or by noise detection. While
+                        efforts are being invested in developing new algorithms with a greater
+                        degree of immunity against such attacks, efforts are also being devoted
+                        towards improving existing algorithms for steganalysis, to detect exchange
+                        of secret information between terrorists or criminal elements.</p>
+            </div>
+                <div class="col-6 col-xs-12">
+                    <img src="{{url_for('static', filename='images/stegano.png')}}" class="mt-3 mb-3 rounded mx-auto d-block img-fluid" style="max-width: 100%; height: auto;" />
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-xs-12">
+                <iframe  class="w-100 d-felx  justify-content-center"  width="560" height="315" src="https://www.youtube.com/embed/TWEXCYQKyDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-6 col-xs-12">
+                <h5>Encode the data :</h5>
+                <p>Every byte of data is converted to its 8-bit binary code using ASCII
+                    values. Now pixels are read from left to right in a group of 3
+                    containing a total of 9 values. The first 8-values are used to store
+                    the binary data. The value is made odd, if 1 occurs and even, if 0 occurs.</p>
+                <h5>Decode the data :</h5>
+                <p>To decode, three pixels are read at a time, till the last value
+                    is odd, which means the message is over. Every 3-pixels contain
+                    a binary data, which can be extracted by the same encoding logic.
+                    If the value if odd the binary bit is 1 else 0.</p>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section class="ml-3 mr-4">
+        <div class="row title">
+            <h2>Ciphers</h2>
+        </div>
+        <div class="row">
+            <h3 class="pb-3">Definition</h3>
+        </div>
+        <div class="row">
+            <blockquote class="w-100">A system of writing that prevents most
+                people from understanding the message.
+                <footer class="blockquote-footer text-right">Cipher, <cite title="Cambridge
+                    Dictionary Website"><a class="cite" href="https://dictionary.cambridge.org/dictionary/english/cipher"
+                    target="_blank">Cambridge Dictionary</a></cite></footer>
+            </blockquote><br />
+            <blockquote>In cryptography, a cipher (or cypher) is an algorithm
+                 for performing encryption or decryption—a series of well-defined steps that can be
+                 followed as a procedure. An alternative, less common term is encipherment. To encipher
+                 or encode is to convert information into cipher or code. In common parlance, "cipher" is
+                 synonymous with "code", as they are both a set of steps that encrypt a message; however,
+                 the concepts are distinct in cryptography, especially classical cryptography.
+                <footer class="blockquote-footer text-right">Cipher, <cite title="Wikipedia
+                    Website"><a class="cite" href="https://en.wikipedia.org/wiki/Cipher" target="_blank">
+                        Wikipedia</a></cite></footer>
+            </blockquote><br />
+            <blockquote >A cipher is a method of hiding words or
+                text with encryption by replacing original letters with other letters, numbers
+                and symbols through substitution or transposition. A combination of substitution
+                and transposition is also often employed.
+                <footer class="blockquote-footer text-right">Cipher, <cite title="tehopidia
+                    Website"><a class="cite" href="https://www.techopedia.com/definition/6472/cipher"
+                    target="_blank">techopidia</a></cite></footer>
+            </blockquote><br />
+        </div>
+        <div class="row">
+            <p>Along the course of history, there were plenty
+                different types of cipher used varying in how they operate or whether
+                they use a single key or multiple keys. Historical chiphers were
+                done using pen and paper and are usually known as classical chiphers.
+                Some examples are the well-known Caesar's cipher or Vigenere's cipher.
+            </p><br />
+        </div>
+        <div class="row">
+            <h3 class="pb-3">Types</h3>
+        </div>
+        <div class="row">
+            <h5 class="pb-3">Classic:</h5>
+            <ul>
+                <a href="#Caesar" class="cite"><li>Caesar Cipher</li></a>
+                <a href="#Vigenere" class="cite"><li>Vigenere Cipher</li></a>
+                <a href="https://en.wikipedia.org/wiki/ROT13" class="cite" target="_blank"><li>ROT13</li></a>
+                <a href="https://en.wikipedia.org/wiki/Scytale" class="cite" target="_blank"><li>Scytale</li></a>
+            </ul>
+        </div>
+        <div class="row">
+            <h5 class="pb-3">Modern:</h5>
+            <ul>
+                <a href="https://en.wikipedia.org/wiki/Feistel_cipher" class="cite" target="_blank"><li>Feistel Cipher</li></a>
+                <a href="https://en.wikipedia.org/wiki/RC4" class="cite" target="_blank"><li>RC4</li></a>
+                <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" class="cite" target="_blank"><li>RSA</li></a>
+                <a href="https://en.wikipedia.org/wiki/Enigma_machine" class="cite" target="_blank"><li>Enigma Machine's Cipher</li></a>
+            </ul>
+        </div>
+        <div id="Caesar">
+            <div class="row">
+                <h3 class="pb-3">Caeser's cipher</h3>
+            </div>
+            <div class="row">
+                <blockquote>In cryptography, a Caesar cipher, also known as Caesar's cipher,
+                    the shift cipher, Caesar's code or Caesar shift, is one of the simplest and
+                    most widely known encryption techniques. It is a type of substitution cipher
+                    in which each letter in the plaintext is replaced by a letter some fixed number
+                    of positions down the alphabet. For example, with a left shift of 3, D would be
+                    replaced by A, E would become B, and so on. The method is named after Julius
+                    Caesar, who used it in his private correspondence.<br /><br />
+                    The encryption step performed by a Caesar cipher is often incorporated as part
+                    of more complex schemes, such as the Vigenère cipher, and still has modern
+                    application in the ROT13 system. As with all single-alphabet substitution
+                    ciphers, the Caesar cipher is easily broken and in modern practice offers
+                    essentially no communications security.
+                    <footer class="blockquote-footer text-right">Caesar Cipher, <cite title="Wikipedia Website">
+                        <a class="cite" href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">
+                            Wikipedia</a></cite></footer>
+                </blockquote><br />
+            </div>
+            <div class="row">
+                <div class="col-12 col-xs-12">
+                    <img src="{{url_for('static', filename='images/CaesarCipher1.jpg')}}" class="mt-3 mb-3 rounded mx-auto d-block img-fluid" style="max-width: 100%; height: auto;" />
+                </div>
+            </div>
+        </div>
+        <div id="Vigenere">
+            <div class="row">
+                <h3 class="pb-3">Vigenere's Cipher</h3>
+            </div>
+            <div class="row">
+                <blockquote>Vigenère cipher, type of substitution cipher invented by the
+                    16th-century French cryptographer Blaise de Vigenère and used for data
+                    encryption in which the original plaintext structure is somewhat concealed
+                    in the ciphertext by using several different monoalphabetic substitution
+                    ciphers rather than just one; the code key specifies which particular
+                    substitution is to be employed for encrypting each plaintext symbol.
+                    Such resulting ciphers, known generically as polyalphabetics, have a
+                    long history of usage. The systems differ mainly in the way in which
+                    the key is used to choose among the collection of monoalphabetic substitution rules.
+                    <footer class="blockquote-footer text-right">Vigenere Cipher, <cite title="Britannica Website">
+                        <a class="cite" href="https://www.britannica.com/topic/Vigenere-cipher" target="_blank">
+                            Encyclop&#230;dia Britannica</a></cite></footer>
+                </blockquote><br />
+            </div>
+            <div class="row">
+                <blockquote>Vigenere Cipher is a method of encrypting alphabetic text. It uses
+                    a simple form of polyalphabetic substitution. A polyalphabetic cipher is any
+                    cipher based on substitution, using multiple substitution alphabets .The
+                    encryption of the original text is done using the Vigenère square or Vigenère table.
+                    <footer class="blockquote-footer text-right">Vigenere Cipher, <cite title="Geeks for Geeks">
+                        <a class="cite" href="https://www.geeksforgeeks.org/vigenere-cipher/" target="_blank">
+                            Geeks for Geeks</a></cite></footer>
+                </blockquote><br />
+            </div>
+            <div class="row">
+                <div class="col-12 col-xs-12">
+                    <img src="{{url_for('static', filename='images/VigenereCipher1.jpg')}}" class="mt-3 mb-3 rounded mx-auto d-block img-fluid" style="max-width: 100%; height: auto;" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section class="ml-3 mr-4 mb-4">
+        <div class="row title">
+            <h2>Authors</h2>
+        </div>
+        <div class="row">
+            <div class="col-3 col-xs-4">
+                <img src="{{url_for('static', filename='images/Cristi2.jpg')}}" class="mt-3 mb-3 rounded-circle mx-auto d-block img-fluid" style="max-width: 50%; height: auto;" />
+            </div>
+            <div class="col-9 col-xs-8">
+                <h3>Cristian D&#194;RL&#258;</h3>
+                <p>I am a student in the 3rd year at the POLITEHNICA University of
+                    Bucharest, Faculty of Engineering in Foreign Languages. My main
+                    academical interests are programming and getting a closer look into
+                    futere technology.<br />
+                I've been part of an exchange programme with the University of Groningen
+                for half-a-year. During this time I took a class of Information Security
+                and there was the place where I got the interest for steganography.</p>
+                <ul class="list-unstyled list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/ion-cristian-d%C3%A2rl%C4%83-939853180/"  target="_blank" class="cite btn-floating btn-li mx-1">
+                            <i class="fab fa-linkedin-in"> </i>
+                         Linkedin</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/cristiandarla/"  target="_blank" class="cite btn-floating btn-dribbble mx-1">
+                            <i class="fab fa-github"></i>
+                         Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-9 col-xs-8" id="nandi">
+            <h3>Nándor IARCA</h3>
+            <p>During my 3rd year professor Bujor P&#259;v&#259;loiu woke up my interests
+                for Digital Signal Processing, since then my attention was fully focused
+                on that little part of DSP, which details the steganography.</p>
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a href="#nandi" class="cite btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                     Linkedin</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://github.com/Matykoka"  target="_blank" class="cite btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-github"></i>
+                     Github</a>
+                </li>
+            </ul>
+        </div>
+            <div class="col-3 col-xs-4">
+                <img src="{{url_for('static', filename='images/nandor.png')}}" class="mt-3 mb-3 rounded-circle mx-auto d-block img-fluid" style="max-width: 50%; height: auto;" />
+            </div>
+        </div>
+    </section>
+</div>
+{%endblock%}

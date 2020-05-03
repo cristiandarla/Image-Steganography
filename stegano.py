@@ -12,22 +12,9 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-def nocache(view):
-    @wraps(view)
-    def no_cache(*args, **kwargs):
-        response = make_response(view(*args, **kwargs))
-        response.headers['Last-Modified'] = http_date(datetime.now())
-        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-        response.headers['Pragma'] = 'no-cache'
-        response.headers['Expires'] = '-1'
-        return response
-
-    return update_wrapper(no_cache, view)
 
 @app.route("/")
 def home():
@@ -42,9 +29,9 @@ def encode():
     return render_template("encode.html")
 
 @app.route("/updateEncode", methods = ['POST'])
-@nocache
 def updateEncode():
     UPLOAD_FOLDER = "static/encode"
+
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     if request.method == 'POST':
         file = request.files['input']
@@ -112,6 +99,10 @@ def finalEncode():
         return render_template("finalEncode.html")
     else:
         return render_template("error.html")
+
+@app.route("/walkThrough")
+def walkThrough():
+    return render_template("walkThrough.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

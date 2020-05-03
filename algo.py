@@ -9,7 +9,7 @@ def caesarEncode(data, delay):
     result = ""
     opt = data.split(" -")
     data = opt[2]
-    result += "-c -" + delay + " -"
+    result += "-c -" + str(delay) + " -"
     for letter in data:
         if (letter.isalpha()):
             if letter.isupper():
