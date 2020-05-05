@@ -4,32 +4,37 @@
 
 @-webkit-keyframes color_change {
 	from { color:#000000; }
-	to { color: #ff9800; }
+	to { color: #9C27B0; }
 }
 @-moz-keyframes color_change {
 	from { color: #000000; }
-	to { color: #ff9800; }
+	to { color: #9C27B0; }
 }
 @-ms-keyframes color_change {
 	from { color: #000000; }
-	to { color: #ff9800; }
+	to { color: #9C27B0; }
 }
 @-o-keyframes color_change {
 	from { color: #000000; }
-	to { color: #ff9800; }
+	to { color: #9C27B0; }
 }
 @keyframes color_change {
 	from { color: #000000; }
-	to { color: #ff9800; }
+	to { color: #9C27B0; }
 }
 
-.cite {
+.custom-gradient{
+    font-size: 20px;
+    background-image: linear-gradient(360deg, rgba(255,255,255,0.93) 0%,
+    rgba(255,255,255,1) 99%, rgba(223,223,223,1) 100%);!important
+}
+
+.cite, .linkedin, .git {
     color: #000000;
 }
 
 .cite:hover {
-    color: #ff9800;
-    text-decoration: none;
+    color: #9C27B0;
     -webkit-animation: color_change 0.5s;
 	-moz-animation: color_change 0.5s;
 	-ms-animation: color_change 0.5s;
@@ -39,4 +44,13 @@
 
 .title{
     text-transform: uppercase;
+}
+
+
+.git:hover{
+    color: #d35400;
+}
+
+.linkedin:hover{
+    color: #3498db;
 }
